@@ -94,21 +94,45 @@ function updateChoropleth() {
     //console.log('<3');
     //console.log(data_Values);
     //console.log('<3');
+    // format this according to the metric
+    var colorlist;
+    switch (data_) {
+        case "Heroin":
+            colorlist = [
 
+
+                '#fcbba1',
+                '#fb6a4a',
+                '#cb181d',
+                "#67000d"
+
+            ];
+            break;
+        case "Marijuana":
+            colorlist = [
+
+
+                '#d9f0a3',
+                '#78c679',
+                '#238443',
+                "#004529"
+
+            ];
+            break;
+    }
     colorscale
         .domain(d3.extent(data_Values))
-        .range([
+        .range(colorlist);
 
-            '#eff3ff',
-            '#c6dbef',
-            '#9ecae1',
-            '#6baed6',
-            '#4292c6',
-            '#2171b5',
-            "#084594"
 
-        ]);
-    //console.log('B4 the map');
+
+
+
+
+
+
+
+
 
     svg.selectAll(".map")
         .attr("fill", function(d) {
@@ -119,7 +143,7 @@ function updateChoropleth() {
             //d3.select(this).attr("class","incident hover");
         })
         .on("mouseout", function(d){
-            d3.select("h2").text("").style("stroke", "white");
+            d3.select("h4").text("").style("stroke", "white");
             //d3.select(this).attr("class","incident");
         });
 
