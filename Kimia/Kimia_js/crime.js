@@ -129,17 +129,12 @@ function updateChoropleth() {
 
 
 
-
-
-
-
-
     svg.selectAll(".map")
         .attr("fill", function(d) {
             //return '#08306b';
             return retrievevalue(d, data_); })
         .on("mouseover", function(d){
-            d3.select("h2").text(d.properties.name).style("stroke", "white");
+            d3.select("h4").text(d.properties.name).style("stroke", "white");
             //d3.select(this).attr("class","incident hover");
         })
         .on("mouseout", function(d){
