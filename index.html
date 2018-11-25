@@ -79,6 +79,16 @@
             <div class="row margin-40">
                <div class="col-sm-8 col-sm-offset-2 text-center">
                   <h2 class="white">Visualiziation #1</h2>
+                   <h2></h2>
+                   <div id="chart-area"></div>
+
+                   <select class="form-control input-lg" id="selector" onchange="updateChoropleth()" >
+                       <ul class="dropdown" >
+                           <li > <option value="Heroin">Heroin</option></li>
+                           <li> <option value="Marijuana">Marijuana</option></li>
+                       </ul>
+                       <div id="choropleth-vizzy"></div>
+                   </select>
                   <p class="white">Caption for visualization</p>
                </div>
             </div>
@@ -245,7 +255,24 @@
       <script src="js/wow.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
 
+
+      <script src="Kimia/Kimia_js/jquery.min.js"></script>
+      <script src="Kimia/Kimia_js/popper.min.js"></script>
+      <script src="Kimia/Kimia_js/bootstrap.min.js"></script>
+      <script src="Kimia/Kimia_js/queue.min.js"></script>
+      <script src="Kimia/Kimia_js/topojson.min.js"></script>
+
+      <script src="Kimia/Kimia_js/d3-min.js"></script>
+      <script src="Kimia/Kimia_js/d3tip.js"></script>
+
+      <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+
+      <!-- our Javascript -->
+
+
+
       <!-- our Javascript -->
       <script src="js/main.js"></script>
+      <script src="Kimia/Kimia_js/crime.js"></script>
    </body>
 </html>
