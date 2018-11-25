@@ -32,6 +32,8 @@ $(document).ready(function(){
   });
   wow.init();
 
+  updateClockChart("HeroinCrimes");
+
 });
 
 

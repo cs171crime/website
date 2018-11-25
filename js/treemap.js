@@ -75,11 +75,11 @@ Treemap.prototype.updateVis = function(){
             }
             else if (d.data.id === "heroin") {
                 vis.heroin = parseInt(d.data.data["size"])
-                return "blue"
+                return "red"
             }
             else if (d.data.id === "needle") {
                 vis.needle = parseInt(d.data.data["size"])
-                return "purple"
+                return "orange"
             }
         })
         // changes clockvisualization
@@ -106,18 +106,21 @@ Treemap.prototype.updateVis = function(){
         .attr("x", -40)
         .attr("y", -20)
         .attr("class", "cal-label")
+        .style("fill", "#31a354")
 
     vis.svg.append("text")
         .text("Heroin: "+vis.heroin)
         .attr("x", -40)
         .attr("y", 0)
         .attr("class", "cal-label")
+        .style("fill", "red")
 
     vis.svg.append("text")
         .text("Needles: "+vis.needle)
         .attr("x", -40)
         .attr("y", 20)
         .attr("class", "cal-label")
+        .style("fill", "orange")
 
     // Draw on screen
     vis.Slices.attr('x', function (d) { return d.x0; })

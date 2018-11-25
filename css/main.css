@@ -662,20 +662,16 @@ footer {
 
 /* Line chart */
 .trend-line {
-    stroke: #091F2F;
+    stroke: grey;
     fill: None;
     stroke-width: 2;
 }
 
 .policy-line {
-    stroke: #F84D42;
+    stroke: purple;
     fill: None;
     stroke-width: 2;
     stroke-dasharray: 2;
-}
-
-.trend-circle {
-    fill: #288BE4;
 }
 
 .trend-circle:hover {
@@ -683,7 +679,7 @@ footer {
 }
 
 .policy-circle {
-    fill: #F84D42;
+    fill: purple;
 }
 
 .policy-circle:hover {
@@ -702,8 +698,8 @@ footer {
 .policy-tip {
     line-height: 1;
     padding: 12px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #F84D42;
+    background: rgba(0, 0, 0, 1);
+    color: purple;
     border-radius: 2px;
 }
 
@@ -751,6 +747,7 @@ td {
 .weekday-label {
     font-weight: bold;
     fill: white;
+    font-size: 12pt;
 }
 
 .cal-label {

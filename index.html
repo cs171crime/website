@@ -187,7 +187,14 @@
                         <td id="sunday"></td>
                      </tr>
                   </table>
-                  <p style="color:white;">See </p>
+                  <p style="color:white;">
+                  See concentration of: &nbsp;
+                        <select id="var" onchange="updateClockChart(this.value)" style="color:black;">
+                           <option value="HeroinCrimes">Number of reported heroin incidents</option>
+                           <option value="WeedCrimes">Number of reported marijuana incidents</option>
+                           <option value="NumNeedles">Number of requested needle pickups</option>
+                        </select>
+                  </p>
                   <table style="margin:0">
                      <tr>
                         <td style="padding-right:50px;">

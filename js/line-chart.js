@@ -190,7 +190,16 @@ Linechart.prototype.updateVis = function() {
         .transition()
         .duration(1500)
         .attr("cx", function(d) { return vis.x(d.date); })
-        .attr("cy", function(d) { return vis.y(d[vis.measure]); });
+        .attr("cy", function(d) { return vis.y(d[vis.measure]); })
+        .attr("fill", function() {
+            if (vis.measure==="HeroinCrimes") { return "red" }
+            else if (vis.measure==="NumbNeedleReports") {return "orange"}
+            else { return "#31a354"}
+         })
+
+
+
+
 
     if (vis.measure==="HeroinCrimes" || vis.measure==="NumbNeedleReports") {
         vis.policyCircleAHOPE = vis.svg
