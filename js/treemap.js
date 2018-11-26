@@ -95,6 +95,8 @@ Treemap.prototype.updateVis = function(){
             }
         });
 
+    // add labels
+
     vis.svg.append("text")
         .text(vis.parentElement.charAt(0).toUpperCase() + vis.parentElement.substr(1))
         .attr("class", "weekday-label")
