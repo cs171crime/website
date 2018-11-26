@@ -79,9 +79,6 @@
 
 
         });
-
-
-
     function updateChoropleth() {
 
 
@@ -142,39 +139,14 @@
         console.log(colorlist2,  "COLORLIST2");
 
 
-        var colorlist = (data_ = "Marijuana") ? [
-
-
-            '#d9f0a3',
-            '#78c679',
-            '#238443',
-            "#004529"
-
-        ] : [
-
-            '#fcbba1',
-            '#fb6a4a',
-            '#cb181d',
-            "#67000d"
-
-        ];
         */
+         var colorlist =  color_by_type(data_);
+
 
         colorscale
             .domain(d3.extent(data_Values))
-            .range([
-
-                '#fcbba1',
-                '#fb6a4a',
-                '#cb181d',
-                "#67000d"
-
-            ]);
-
-
-        //console.log(colorlist2==colorlist);
-        //console.log(colorlist2===colorlist);
-
+            .range(colorlist);
+        
 
 
         svg.selectAll(".map")
@@ -247,20 +219,19 @@
 //the data objects are the fill colors
                 return d;
             });
-        console.log("LEGEND", legend)
 
-        legend.selectAll('text')
+        legend_.selectAll('text')
             .text(function(d, i) {
                 var extent = colorscale.invertExtent(d);
                 format = d3.format(",.2r");
-//format = d3.format(".1f");
+
                 boundary = format(+extent[0]);
                 boundary2 = format(+extent[1]);
                 console.log("BOUNDARY", boundary)
                 var total = boundary+ " - " + boundary2 + grouptext(data_);
 
 
-                return total
+                return total;
             });
         console.log("LEGEND2", legend)
 
@@ -275,7 +246,7 @@
 // data found in our dataset
                 var metricData = countryData[data_];
 
-// format this according to the metric
+
                 var format;
                 switch (data_) {
                     case "Heroin":
@@ -289,7 +260,7 @@
 
                 return countryData.neighborhood + ": " + metricString;
             } else {
-// no data, don't show anything in the tooltip
+
                 return null;
             }
         });
@@ -341,25 +312,26 @@
 
 
     function color_by_type(data_) {
-        if (data_ === "Heroin" ) {
+
+        if (data_ == "Heroin" ) {
             return [
 
 
                 '#fcbba1',
                 '#fb6a4a',
                 '#cb181d',
-                "#67000d"
+                '#67000d'
 
             ];
         }
-        if (data_ === "Marijuana" ) {
+        else if (data_ == "Marijuana" ) {
             return  [
 
 
                 '#d9f0a3',
                 '#78c679',
                 '#238443',
-                "#004529"
+                '#004529'
 
             ];
         }
@@ -369,7 +341,7 @@
                 '#ffffff',
                 '#ffffff',
                 '#ffffff',
-                "#ffffff"
+                '#ffffff'
 
             ];
         };
