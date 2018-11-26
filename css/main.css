@@ -3,11 +3,11 @@
    Global styles
    ========================================================================== */
 h1, h2, h3, h4, h5, h6, p, .btn, .navbar-nav a, .form-control, .list-inline, small, #vis1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: Avenir;
 }
 
 p, .lead {
-	font-family: 'Raleway', sans-serif;
+	font-family: Avenir;
 }
 
 h1 {
