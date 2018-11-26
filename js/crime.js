@@ -90,56 +90,7 @@
             return d[data_];
         });
 
-/*
-        var colorlist;
-        switch (data_) {
-            case "Heroin":
-                colorlist = [
 
-
-                    '#fcbba1',
-                    '#fb6a4a',
-                    '#cb181d',
-                    "#67000d"
-
-                ];
-                break;
-            case "Marijuana":
-                colorlist = [
-
-
-
-
-                ];
-                break;
-        }
-
-                colorscale
-            .domain(d3.extent(data_Values))
-            .range(colorlist);
-
-
-
-        //var colorlist =  color_by_type(data_);
-
-
-        var colorlist = color_by_type(data_);
-        console.log(colorlist,  "COLORLIST");
-
-        var colorlist2 = [
-
-            '#fcbba1',
-            '#fb6a4a',
-            '#cb181d',
-            "#67000d"
-
-        ];
-
-
-        console.log(colorlist2,  "COLORLIST2");
-
-
-        */
          var colorlist =  color_by_type(data_);
 
 
@@ -155,28 +106,19 @@
                 return retrievevalue(d, data_); })
             .on("mouseover", function(d){
                 d3.select("h4").text(d.properties.name).style("stroke", "white");
-//d3.select(this).attr("class","incident hover");
+
             })
             .on("mouseout", function(d){
                 d3.select("h4").text("").style("stroke", "white");
-//d3.select(this).attr("class","incident");
+
             });
 
-        /*
-        .on('mouseover', function(d) {
-        // only show tooltip if we have data for this country
-        var countryData = retrievevalue(d);
-        if (countryData) {
-        tip.show(d);
-        }
-        })
-        .on('mouseout', tip.hide);
-        */
+
 
 
         var legend = svg.selectAll('g.legry')
             .data(colorscale.range(), function(d) {
-// key it to itself
+
                 return d;
             });
 
@@ -186,7 +128,7 @@
             .attr('class', 'legry');
 
 
-// draw colored boxes
+
         legend_
             .append('rect')
             .attr("x", width - 270)
@@ -201,7 +143,7 @@
                 return d;
             });
 
-// draw legend label text
+
         legend_
             .append('text')
             .attr("x", width-245 )
@@ -210,13 +152,10 @@
             })
             .style("stroke", "white")
             .style("stroke-width", 1);
-//.style("fill", function(d){return d;});
 
-// UPDATE
-// update colors
         legend.selectAll('rect')
             .style("fill", function(d) {
-//the data objects are the fill colors
+
                 return d;
             });
 
@@ -238,32 +177,7 @@
         legend.exit().remove();
 
 
-// TOOLTIP
-        tip.html(function(d) {
-// show the country name and the relevant metric
-            var countryData = retrievevalue(d);
-            if (countryData !== null) {
-// data found in our dataset
-                var metricData = countryData[data_];
 
-
-                var format;
-                switch (data_) {
-                    case "Heroin":
-                        format = d3.format("0,000");
-                        break;
-                    case "Marijuana":
-                        format = d3.format("0.1f");
-                        break;
-                }
-                var metricString = format(metricData);
-
-                return countryData.neighborhood + ": " + metricString;
-            } else {
-
-                return null;
-            }
-        });
 
 
     }
@@ -283,14 +197,14 @@
         if (countryData !== null) {
             var metricValue = countryData[data_];
             if (isNaN(metricValue)) {
-// invalid data
+
                 return "black";
             } else {
-// all good, use the scale to calculate a fill color
+
                 return colorscale(metricValue);
             }
         } else {
-// not found in dataset
+
             return "black";
         }
     }
