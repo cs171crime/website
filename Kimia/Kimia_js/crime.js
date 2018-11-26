@@ -219,7 +219,7 @@
             .append('rect')
             .attr("x", width - 270)
             .attr("y", function(d, i) {
-                return i * 20 +350;
+                return i * 20 +320;
             })
             .attr("width", 20)
             .attr("height", 20)
@@ -234,7 +234,7 @@
             .append('text')
             .attr("x", width-245 )
             .attr("y", function(d, i) {
-                return i * 20 +365;
+                return i * 20 +335;
             })
             .style("stroke", "white")
             .style("stroke-width", 1);
