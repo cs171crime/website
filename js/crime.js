@@ -103,7 +103,7 @@ function updateChoropleth() {
     svg.selectAll(".map")
         .attr("fill", function(d) {
 
-            return retrievevalue(d, data_); })
+            return calculateFill(d, data_); })
         .on("mouseover", function(d){
             d3.select("h4").text(d.properties.name).style("stroke", "white");
 
@@ -192,20 +192,20 @@ function grouptext(data_) {
 
 
 function calculateFill(d, data_) {
-    var countryData = retrievevalue(d);
+    var countryData = getit(d);
 
     if (countryData !== null) {
         var metricValue = countryData[data_];
         if (isNaN(metricValue)) {
 
-            return "black";
+            return "grey" ;
         } else {
 
             return colorscale(metricValue);
         }
     } else {
 
-        return "black";
+        return "grey";
     }
 }
 
