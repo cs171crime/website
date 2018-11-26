@@ -121,7 +121,7 @@
             .domain(d3.extent(data_Values))
             .range(colorlist);
 
-        */
+
 
         //var colorlist =  color_by_type(data_);
 
@@ -137,15 +137,43 @@
             "#67000d"
 
         ];
+
+
         console.log(colorlist2,  "COLORLIST2");
+
+
+        var colorlist = (data_ = "Marijuana") ? [
+
+
+            '#d9f0a3',
+            '#78c679',
+            '#238443',
+            "#004529"
+
+        ] : [
+
+            '#fcbba1',
+            '#fb6a4a',
+            '#cb181d',
+            "#67000d"
+
+        ];
+        */
 
         colorscale
             .domain(d3.extent(data_Values))
-            .range(colorlist2);
+            .range([
+
+                '#fcbba1',
+                '#fb6a4a',
+                '#cb181d',
+                "#67000d"
+
+            ]);
 
 
-        console.log(colorlist2==colorlist);
-        console.log(colorlist2===colorlist);
+        //console.log(colorlist2==colorlist);
+        //console.log(colorlist2===colorlist);
 
 
 
