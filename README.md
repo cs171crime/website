@@ -29,30 +29,28 @@ Our group members are:
 * `Modernizr` - For website design
 
 *Our code*
-* `main.js` - 
+* `main.js` - Loads navbar and scrolling; instantiates visualization objects for line chart, tree map, and clock chart
 * `crime.js` - Creates choropleth map
 * `barchart.js` - ?
-* `line-chart.js` - Creates line chart
-* `treemap.js` - Creates 
-* `clock.js` - Creates clock visualization
+* `line-chart.js` - Creates line chart object
+* `treemap.js` - Creates tree map object for calendar visualization
+* `clock.js` - Creates pie chart object for clock visualization
 
 ### Data
 
-* `allData.csv` - ?
+* `allData.csv` - Number of incidents per neighborhood
 * `boston.geojson` - Spatial reference data for the City of Boston
-* `boston.json` - 
-* `crime_calendar.csv` - 
-* `DrugsByhour.csv` - Number of incidents per hour
-* `heroin.csv` - 
-* `hoods.csv` - 
-* `income.csv` - ?
-* `lineChartData.csv` - 
-* Data cleaning and aggregation scripts
+* `boston.json` - Data for choropleth map
+* `crime_calendar.csv` - Data for tree map/calendar visualization
+* `DrugsByhour.csv` - Number of incidents per hour, for clock visualization
+* `hoods.csv` - Number of incidents per neighborhood
+* `lineChartData.csv` - Data for line chart
+* `CrimeCleaning.ipynb` - Python script used to clean and aggregate data
 
 ### Img
 
-* `header-bg.jpg` - background image for website
-* `purple.jpg` - background image for website
+* `header-bg.jpg` - Background image for website
+* `purple.jpg` - Background image for website
 
 ### CSS
 
