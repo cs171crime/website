@@ -36,7 +36,7 @@ d3.csv("data/lineChartData.csv", function(data) {
     console.log(data)
 
     // Instantiate line chart object
-    linechart = new Linechart("line-chart", data);
+    linechart = new Linechart("#line-chart", data, "#line-chart-desc");
 
     // Reach to new user input and update line chart
     d3.select("#var").on("change", updateLineChart);
@@ -47,7 +47,7 @@ function updateLineChart() {
     // Grab user input and save it to measure attribute
     linechart.measure = d3.select("#var").property("value");
 
-    // update visual
+    // Update visual
     linechart.wrangleData();
 
 };

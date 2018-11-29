@@ -9,13 +9,14 @@ var formatDate = d3.timeFormat("%B %Y");
  * @param _data	-- the data
  */
 
-Linechart = function(_parentElement, _data) {
+Linechart = function(_parentElement, _data, _descElement) {
 	this.parentElement = _parentElement;
 	this.data = _data;
 	this.measure = "HeroinCrimes";
 	this.dateAHOPE = parseDate("10/2016");
     this.dateBILL4056 = parseDate("03/2016");
     this.dateMARIJUANABALLOT = parseDate("12/2016");
+    this.descElement = _descElement;
 
     this.initVis();
 };
@@ -25,15 +26,17 @@ Linechart.prototype.initVis = function() {
 	var vis = this;
 
 	// Set up SVG drawing area 
-	var colWidth = $("#line-chart").width();
+	var colWidth = $(vis.parentElement).width();
 
 	vis.margin = {top: 40, right: 40, bottom: 40, left: 40};
 
     vis.width = colWidth - vis.margin.left - vis.margin.right,
         vis.height = 300 - vis.margin.top - vis.margin.bottom;
 
+    vis.descHeight = 50; // for description svg height
+
     // SVG drawing area
-    vis.svg = d3.select("#" + vis.parentElement).append("svg")
+    vis.svg = d3.select(vis.parentElement).append("svg")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .append("g")
@@ -82,6 +85,16 @@ Linechart.prototype.initVis = function() {
         .attr('class', 'policy-tip')
         .offset([-10, 0]);
     vis.svg.call(vis.policyTipMARIJUANABALLOT);
+
+    // Description area set up
+    vis.descSvg = d3.select(vis.descElement).append("svg")
+        .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        .attr("height", vis.descHeight);
+
+    vis.descSvg.append("text")
+        .attr("x",20)
+        .attr("y",40)
+        .attr("fill","white");
 
     // call wrangleData
     vis.wrangleData();
@@ -195,11 +208,7 @@ Linechart.prototype.updateVis = function() {
             if (vis.measure==="HeroinCrimes") { return "red" }
             else if (vis.measure==="NumbNeedleReports") {return "orange"}
             else { return "#31a354"}
-         })
-
-
-
-
+         });
 
     if (vis.measure==="HeroinCrimes" || vis.measure==="NumbNeedleReports") {
         vis.policyCircleAHOPE = vis.svg
@@ -231,5 +240,16 @@ Linechart.prototype.updateVis = function() {
             .on("mouseout", vis.policyTipMARIJUANABALLOT.hide)
     }
 
+    // Update text
+    vis.descSvg.exit().remove();
+    if (vis.measure==="HeroinCrimes") {
+        vis.descSvg.select("text").text("Reported heroin incidents took a dip around the time that Bill H.4056 was enacted in the spring of 2016 but have crept back up and were fairly constant in 2017.");
+    }
+    else if (vis.measure==="NumbNeedleReports") {
+        vis.descSvg.select("text").text("Requests to pick up needles have steadily increased since late 2015, despite a brief decline after public uproar in the summer of 2017.");
+    }
+    else {
+        vis.descSvg.select("text").text("Reported marijuana possession has been in decline long before voters legalized the drug in the fall of 2016.")
+    }
 };
 

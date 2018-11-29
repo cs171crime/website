@@ -36,7 +36,7 @@
             <div class="row">
                <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
                   <h2>The State of Crime</h2>
-                  <p class="lead">Boston is a hub for drug-related crime</p>
+                  <p class="lead">Boston is home to its fair share of crime.</p>
                </div>
             </div>
             <div class="wow fadeInUp" data-wow-delay="1s" align="center">
@@ -51,17 +51,17 @@
                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
                   <hr class="line red">
                   <h3>Heroin</h3>
-                  <p>Heroin possession is illegal in Boston. The city has the seventh highest death rate from Heroin overdoses (CDC 2016).</p>
+                  <p>Heroin possession is illegal in Boston. The city has the seventh highest death rate from Heroin overdoses (CDC 2016). In recent years, the United States has been rocked by the <a href="https://www.hhs.gov/opioids/about-the-epidemic/index.html">opioid crisis</a>.</p>
                </div>
                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
                   <hr  class="line red">
-                  <h3>Marijuana</h3>
-                  <p>Although Marijuana was recently legalized in Boston, it is widely regarded as the city's gateway-drug.</p>
+                  <h3>Needles</h3>
+                  <p>Boston 311, the city's public service request channel, allows constituents to report used needles lying on the ground in their neighborhood. Used needles are often indications of opioid use.</p>
                </div>
                <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
                   <hr  class="line red">
-                  <h3>Needles</h3>
-                  <p>Boston 311, the city's public service request channel, allows constituents to report used needles lying on the ground in their neighborhood. Used needles are often indications of opioid use.</p>
+                  <h3>Marijuana</h3>
+                  <p>Although Marijuana was recently legalized in Boston, it is widely regarded as a gateway drug.</p>
                </div>
             </div>
          </div>
@@ -89,7 +89,7 @@
                   <br>
                   <table>
                      <tr>
-                        <p class="white"> Please note that missing data is grey</p>
+                        <p class="white">Please note that missing data is grey</p>
                         <td>
                            <h4 class="white"> </h4>
                            <div id="chart-area"></div>
@@ -98,6 +98,7 @@
                      </tr>
                   </table>
                </div>
+               <p style="fill: white">Source: <a href="https://data.boston.gov/">Analyze Boston</a></p>
             </div>
          </div>
       </section>
@@ -106,9 +107,9 @@
          <div class="container">
             <div class="row">
                <div class="col-sm-8 col-sm-offset-2 text-center">
-                  <h2 class="black">Ineffectiveness of Policies</h2>
+                  <h2 class="black">Inefficacy of Policies</h2>
                   <br />
-                  <p class="black">Boston implemented two policy-changes aimed at reducing Heroin abuse in 2016 and legalized Marijuana in late 2016. Data shows mixed effectiveness of these policies in targeting criminal activity.</p>
+                  <p class="black">Boston implemented two policy-changes aimed at reducing heroin abuse in 2016 and legalized marijuana in late 2016. The data shows mixed success of these policies in reducing these drug-related activities at the macro-level.</p>
                   <br />
                </div>
             </div>
@@ -120,9 +121,9 @@
              <div class="row margin-40">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
                    <h2 class="white">Crime vs. Policies</h2>
-                   <p class="white">See how Boston anti-drug policies were ineffective at combatting crime.</p>
-                   <p class="white">Hover over the circle on the vertical line for policy information.</p>
-
+                   <p class="white">Explore the efficacy of recent policy changes in combating drug-related activities.</p>
+                   <p class="white">The purple lines denote the beginning of relevant policy or law targeting these activities.</p>
+                   <p class="white">Hover over the circle on these lines for more information.</p>
                 </div>
              </div>
              <div class="row margin-50">
@@ -141,6 +142,8 @@
                    <!--Line chart area-->
                    <div id="line-chart"></div>
                 </div>
+                <div id="line-chart-desc"></div>
+                <p style="fill: white">Source: <a href="https://data.boston.gov/">Analyze Boston</a></p>
              </div>
           </div>
       </section>
@@ -185,9 +188,8 @@
             <div class="row margin-40">
                <div class="col-sm-8 col-sm-offset-2 text-center">
                   <h2 class="white">A Micro-Level View of Crime</h2>
-                  <p class="white">Explore Boston's crime trends by day of week and hour of the day</p>
-                  <p class="white">Click on a day's stacked column to see the time that those crimes are reported on that day</p>
-
+                  <p class="white">Explore Boston's drug use and abuse trends by day of week and hour of the day</p>
+                  <p class="white">Click on a day's stacked column to see the hourly concentration of that incident type</p>
                </div>
             </div>
             <div class="row margin-50">
@@ -211,22 +213,24 @@
                            <option value="NumNeedles">Number of requested needle pickups</option>
                         </select>
                   </p>
+                  <p style="fill: white">Darker shades on the clock correspond to higher hourly concentrations</p>
                   <table style="margin:0">
                      <tr>
                         <td style="padding-right:50px;">
-                           <h2 style="font-size:13pt;" align="center">Midnight - noon</h2>
+                           <h2 style="font-size:13pt;" align="center">A.M.</h2>
                            <br>
                            <div id="clock-chart-morning" align="center"></div>
                         </td>
                         <td style="padding-left:50px;">
-                           <h2 style="font-size:13pt;" align="center">Noon - midnight</h2>
+                           <h2 style="font-size:13pt;" align="center">P.M.</h2>
                            <br>
                            <div id="clock-chart-afternoon" align="center"></div>
                         </td>
                      </tr>
                   </table>
                   </div>
-               </div>
+               <p style="fill: white">Source: <a href="https://data.boston.gov/">Analyze Boston</a></p>
+            </div>
             </div>
          </div>
       </section>
@@ -237,7 +241,7 @@
                <div class="col-sm-8 col-sm-offset-2 text-center">
                   <h2 class="black">Get Involved</h2>
                   <br>
-                  <p class="black">The best way forward is grassroots involvement. There are many ways to get involved in <a href="https://www.boston.gov/getting-involved" style="color:blue;">Boston's Anti-Crime Initiatives</a>.</p>
+                  <p class="black">The best way forward is grassroots involvement. There are many ways to get involved in <a href="https://www.boston.gov/getting-involved" style="color:blue;">making Boston a better place to live</a>.</p>
                   <br>
                </div>
             </div>
