@@ -33,7 +33,9 @@ var legendOptions = {
 // set up d3 tooltip
 var tip = d3.tip()
     .attr('class', 'd3-tip');
-svg.call(tip); //maybe this should be SVG/g???
+g.call(tip); //maybe this should be SVG/g???
+
+
 
 var colorlist = {};
 
@@ -104,6 +106,17 @@ function updateChoropleth() {
         .attr("fill", function(d) {
 
             return calculateFill(d, data_); })
+        .on('mouseover', function(d) {
+            var countryData = getit(d);
+            if (countryData) {
+                tip.show(d);
+            }
+        })
+        .on('mouseout', tip.hide);
+
+
+
+        /*
         .on("mouseover", function(d){
             d3.select("h4").text(d.properties.name).style("stroke", "white");
 
@@ -111,7 +124,7 @@ function updateChoropleth() {
         .on("mouseout", function(d){
             d3.select("h4").text("").style("stroke", "white");
 
-        });
+        }); */
 
 
 
@@ -171,10 +184,62 @@ function updateChoropleth() {
     legend.exit().remove();
 
 
+    tip.html(function(d) {
+        // show the country name and the relevant metric
+        var countryData = d.properties.name;
+        /*
+        if (countryData !== null) {
+            // data found in our dataset
+            var metricData = countryData[data_];
+
+            // format this according to the metric
+            var format;
+            switch (metric) {
+                case "Heroin":
+                    format = d3.format("0,000");
+                    break;
+                case "Marijuana":
+                    format = d3.format("0,000");
+                    break;
+            }
+            var metricString = format(metricData);
+
+            return countryData.Country + ": " + metricString;
+        } else {
+            // no data, don't show anything in the tooltip
+            return null;
+        }
+
+        */
+        return d.properties.name;
+
+    });
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+function getCountryData(d) {
+    // use the 3-letter abbreviation
+    //var code = ID_data[d.properties.name];
+    var thisCountryData = ID_data[d.properties.name];
+    return thisCountryData || null;
+}
+
+
+
+
+
+
 
 function grouptext(data_) {
     if (data_ === "Heroin" ) {
@@ -203,6 +268,15 @@ function calculateFill(d, data_) {
     }
 }
 
+
+
+
+
+
+
+
+
+
 function retrievevalue(d, data_) {
     console.log('retrieve');
     var country_data2 = getit(d);
@@ -212,7 +286,6 @@ function retrievevalue(d, data_) {
 }
 
 function getit(d) {
-    console.log('ID_data[d.properties.name]', ID_data[d.properties.name]);
     return ID_data[d.properties.name] || 0;
 
 }
