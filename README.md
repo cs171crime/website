@@ -30,7 +30,7 @@ Our group members are:
 
 *Our code*
 * `main.js` - Loads navbar and scrolling; instantiates visualization objects for line chart, tree map, and clock chart
-* `crime.js` - Creates choropleth map
+* `chlorocrime.js` - Creates choropleth map
 * `barchart.js` - ?
 * `line-chart.js` - Creates line chart object
 * `treemap.js` - Creates tree map object for calendar visualization
@@ -46,7 +46,7 @@ Our group members are:
 * `hoods.csv` - Number of incidents per neighborhood
 * `lineChartData.csv` - Data for line chart
 * `CrimeCleaning.ipynb` - Python script used to clean and aggregate data
-
+* `CrimeCleaning_additional_data.ipynb` - Python script used to clean and aggregate data
 ### Img
 
 * `header-bg.jpg` - Background image for website
