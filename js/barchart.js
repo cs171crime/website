@@ -25,40 +25,40 @@ var neighborhoods = ["Allston",
 
 
 // Define dimensions of vis
-var margin = { top: 30, right: 50, bottom: 30, left: 50 },
-    width  = 650 - margin.left - margin.right,
-    height = 250 - margin.top  - margin.bottom;
+var marginBar = { top: 30, right: 50, bottom: 30, left: 50 },
+    widthBar  = 650 - marginBar.left - marginBar.right,
+    heightBar = 250 - marginBar.top  - marginBar.bottom;
 
 // Make x scale
-var xScale = d3.scaleBand()
+var xScaleBar = d3.scaleBand()
     .domain(neighborhoods)
-    .range([0,width])
+    .range([0,widthBar])
     .padding(.1);
 
 //Create yScale - domain to be defined on "bar update"
-var yScale = d3.scaleLinear()
-    .range([height, 0]);
+var yScaleBar = d3.scaleLinear()
+    .range([heightBar, 0]);
 
 //Draw Canvas
 //Set SVG
-var svg = d3.select("#chart-area2")
+var svgBar = d3.select("#barChart")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom + 150)
+    .attr("width", widthBar + marginBar.left + marginBar.right)
+    .attr("height", heightBar + marginBar.top + marginBar.bottom + 150)
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + marginBar.left + "," + marginBar.top + ")");
 
 //Create xAxis
-var xAxis = d3.axisBottom(xScale);
+var xAxis = d3.axisBottom(xScaleBar);
 
 
 // Create yAxis
-var yAxis = d3.axisLeft(yScale);
+var yAxis = d3.axisLeft(yScaleBar);
 
 //Add xAxis to canvas - translate and fix ticks
-svg.append("g")
+svgBar.append("g")
     .attr("class", "x-axis axis")
-    .attr("transform","translate(0," + height + ")")
+    .attr("transform","translate(0," + heightBar + ")")
     .call(xAxis)
     .selectAll("text")
     .attr("transform", "rotate(-70)")
@@ -68,13 +68,13 @@ svg.append("g")
     .style("font-size", "8px");
 
 // Add yAxis to canvas
-svg.append("g")
+svgBar.append("g")
     .attr("class", "y-axis axis")
     .call(yAxis)
     .style("font-size", "8px");
 
 //Add Labels for y axis (Need to play around with to align correctly)
-svg.append('text')
+svgBar.append('text')
     .attr('x', -20)
     .attr('y', 10)
     .attr('transform', 'rotate(-90)')
@@ -83,8 +83,8 @@ svg.append('text')
     .style("font-size", "8px");
 
 //Add Labels for x axis (Need to play around with to align correctly)
-svg.append('text')
-    .attr('x', width / 2 + margin)
+svgBar.append('text')
+    .attr('x', widthBar / 2 + marginBar)
     .attr('y', 400)
     .attr('text-anchor', 'middle')
     .text('Neighborhood')
@@ -137,9 +137,9 @@ function updateVisualization() {
         }
     });
     console.log(maxY);
-    yScale.domain([0, maxY]);
+    yScaleBar.domain([0, maxY]);
 
-    var bars = svg.selectAll(".bar").data(data);
+    var bars = svgBar.selectAll(".bar").data(data);
 
     // Add bars for new data
     bars.enter()
@@ -148,25 +148,25 @@ function updateVisualization() {
         .attr("class", "bar")
         .merge(bars)
         .attr("x", function(d,i) {
-            return xScale( neighborhoods[i] );
+            return xScaleBar( neighborhoods[i] );
         })
-        .attr("width", xScale.bandwidth())
+        .attr("width", xScaleBar.bandwidth())
         .attr("y", function(d,i) {
-            if (grouping == "Marijuana") return yScale(d.Marijuana);
-            else return yScale(d.Heroin);
+            if (grouping == "Marijuana") return yScaleBar(d.Marijuana);
+            else return yScaleBar(d.Heroin);
         })
         .attr("height", function(d,i) {
-            if (grouping == "Marijuana") return height - yScale(d.Marijuana);
-            else return height - yScale(d.Heroin);
+            if (grouping == "Marijuana") return heightBar - yScaleBar(d.Marijuana);
+            else return heightBar - yScaleBar(d.Heroin);
         });
 
     bars.exit().remove();
 
-    svg.select(".x-axis")
+    svgBar.select(".x-axis")
         .transition()
         .call(xAxis);
 
-    svg.select(".y-axis")
+    svgBar.select(".y-axis")
         .transition()
         .call(yAxis);
 }
