@@ -38,9 +38,7 @@ Our group members are:
 
 ### Data
 
-* `allData.csv` - Number of incidents per neighborhood
 * `boston.geojson` - Spatial reference data for the City of Boston
-* `boston.json` - Data for choropleth map
 * `crime_calendar.csv` - Data for tree map/calendar visualization
 * `DrugsByhour.csv` - Number of incidents per hour, for clock visualization
 * `hoods.csv` - Number of incidents per neighborhood
