@@ -147,7 +147,7 @@ function updateChoropleth() {
         .attr("y", function(d, i) {
             return i * 20 +335;
         })
-        .style("stroke", "black")
+        .style("stroke", "white")
         .style("stroke-width", 1);
 
 
@@ -192,14 +192,14 @@ function calculateFill(d, data_) {
         var metricValue = countryData[data_];
         if (isNaN(metricValue)) {
 
-            return "black" ;
+            return "white" ;
         } else {
 
             return colorscale(metricValue);
         }
     } else {
 
-        return "black";
+        return "white";
     }
 }
 
