@@ -33,7 +33,7 @@ var legendOptions = {
 // set up d3 tooltip
 var tip = d3.tip()
     .attr('class', 'd3-tip');
-g.call(tip); //maybe this should be SVG/g???
+g.call(tip);
 
 
 
@@ -44,7 +44,6 @@ var country_data, ID_data = {};
 var rawcountry_data, ID_data = {};
 
 
-// Use the Queue.js library to read two files
 queue()
     .defer(d3.json, "data/boston.geojson")
     .defer(d3.csv, "data/hoods.csv")
@@ -77,8 +76,6 @@ queue()
             .attr( "d", geoPath );
 
         updateChoropleth();
-
-
 
     });
 function updateChoropleth() {
@@ -113,19 +110,6 @@ function updateChoropleth() {
             }
         })
         .on('mouseout', tip.hide);
-
-
-
-        /*
-        .on("mouseover", function(d){
-            d3.select("h4").text(d.properties.name).style("stroke", "white");
-
-        })
-        .on("mouseout", function(d){
-            d3.select("h4").text("").style("stroke", "white");
-
-        }); */
-
 
 
 
@@ -185,38 +169,10 @@ function updateChoropleth() {
 
 
     tip.html(function(d) {
-
-
-
-        return d.properties.name ;
-
-
-
+        return d.properties.name;;
     });
 
-
-
 }
-
-
-
-
-
-
-
-
-
-
-function getCountryData(d) {
-    // use the 3-letter abbreviation
-    //var code = ID_data[d.properties.name];
-    var thisCountryData = ID_data[d.properties.name];
-    return thisCountryData || null;
-}
-
-
-
-
 
 
 
@@ -247,28 +203,10 @@ function calculateFill(d, data_) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-function retrievevalue(d, data_) {
-    console.log('retrieve');
-    var country_data2 = getit(d);
-    var data_Value = country_data2[data_];
-
-    return colorscale(data_Value);
-}
-
 function getit(d) {
     return ID_data[d.properties.name] || 0;
 
 }
-
 
 function color_by_type(data_) {
 
