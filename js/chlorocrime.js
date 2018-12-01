@@ -150,14 +150,9 @@ function updateChoropleth() {
         .attr("y", function(d, i) {
             return i * 20 +335;
         })
-        .style("stroke", "white")
+        .style("stroke", "black")
         .style("stroke-width", 1);
 
-    legend.selectAll('rect')
-        .style("fill", function(d) {
-
-            return d;
-        });
 
     legend_.selectAll('text')
         .text(function(d, i) {
@@ -172,7 +167,6 @@ function updateChoropleth() {
 
             return total;
         });
-    console.log("LEGEND2", legend)
 
     legend.exit().remove();
 
@@ -198,17 +192,16 @@ function calculateFill(d, data_) {
         var metricValue = countryData[data_];
         if (isNaN(metricValue)) {
 
-            return "grey" ;
+            return "black" ;
         } else {
 
             return colorscale(metricValue);
         }
     } else {
 
-        return "grey";
+        return "black";
     }
 }
-
 
 function retrievevalue(d, data_) {
     console.log('retrieve');
