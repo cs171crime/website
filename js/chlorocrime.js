@@ -185,33 +185,12 @@ function updateChoropleth() {
 
 
     tip.html(function(d) {
-        // show the country name and the relevant metric
-        var countryData = d.properties.name;
-        /*
-        if (countryData !== null) {
-            // data found in our dataset
-            var metricData = countryData[data_];
 
-            // format this according to the metric
-            var format;
-            switch (metric) {
-                case "Heroin":
-                    format = d3.format("0,000");
-                    break;
-                case "Marijuana":
-                    format = d3.format("0,000");
-                    break;
-            }
-            var metricString = format(metricData);
 
-            return countryData.Country + ": " + metricString;
-        } else {
-            // no data, don't show anything in the tooltip
-            return null;
-        }
 
-        */
-        return d.properties.name;
+        return d.properties.name ;
+
+
 
     });
 
