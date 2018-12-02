@@ -49,29 +49,32 @@ var svgBar = d3.select("#barChart")
     .attr("transform", "translate(" + marginBar.left + "," + marginBar.top + ")");
 
 //Create xAxis
-var xAxis = d3.axisBottom(xScaleBar);
+var xAxisBar = d3.axisBottom(xScaleBar);
 
 
 // Create yAxis
-var yAxis = d3.axisLeft(yScaleBar);
+var yAxisBar = d3.axisLeft(yScaleBar);
 
 //Add xAxis to canvas - translate and fix ticks
 svgBar.append("g")
     .attr("class", "x-axis axis")
     .attr("transform","translate(0," + heightBar + ")")
-    .call(xAxis)
+    .call(xAxisBar)
     .selectAll("text")
     .attr("transform", "rotate(-70)")
     .attr("dx", "-.8em")
     .attr("dy",".25em")
     .style("text-anchor", "end")
-    .style("font-size", "8px");
+    .style("font-size", "8px")
+    .style("fill", "white");
 
 // Add yAxis to canvas
 svgBar.append("g")
     .attr("class", "y-axis axis")
-    .call(yAxis)
-    .style("font-size", "8px");
+    .call(yAxisBar)
+    .style("font-size", "8px")
+    .style("stroke", "white");
+
 
 //Add Labels for y axis (Need to play around with to align correctly)
 svgBar.append('text')
@@ -79,12 +82,13 @@ svgBar.append('text')
     .attr('y', 10)
     .attr('transform', 'rotate(-90)')
     .attr('text-anchor', 'middle')
-    .text('Crimes')
-    .style("font-size", "8px");
+    .text('Reports')
+    .style("font-size", "8px")
+    .style("fill", "white");
 
 //Add Labels for x axis (Need to play around with to align correctly)
 svgBar.append('text')
-    .attr('x', widthBar / 2 + marginBar)
+    .attr('x', widthBar / 2)
     .attr('y', 400)
     .attr('text-anchor', 'middle')
     .text('Neighborhood')
@@ -144,9 +148,13 @@ function updateVisualization() {
     // Add bars for new data
     bars.enter()
         .append("rect")
-        .attr("fill", "purple")
         .attr("class", "bar")
         .merge(bars)
+        .attr("fill", function(d) {
+            console.log(colorBars(grouping));
+            console.log("yeet");
+            return colorBars(grouping);
+        })
         .attr("x", function(d,i) {
             return xScaleBar( neighborhoods[i] );
         })
@@ -163,13 +171,23 @@ function updateVisualization() {
     bars.exit().remove();
 
     svgBar.select(".x-axis")
-        .transition()
-        .call(xAxis);
+        .transition(1000)
+        .call(xAxisBar);
 
     svgBar.select(".y-axis")
-        .transition()
-        .call(yAxis);
+        .transition(1000)
+        .call(yAxisBar);
 }
+
+function colorBars(data_) {
+
+    if (data_ == "Heroin") {
+        return '#67000d';
+    } else {
+        return '#004529';
+    }
+};
+
 
 
 
