@@ -242,7 +242,7 @@ header {
 
 
 #be-the-first {
-  background: url(../img/purple.jpg) #231f20 no-repeat center center fixed;
+  background: url(../img/red.jpg) #231f20 no-repeat center center fixed;
   min-height: 300px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -496,9 +496,9 @@ td {
 /*   BAR-CHART  */
 /****************/
 
-.bar {
-    fill: #3C948B;
-}
+/*.bar {*/
+    /*fill: #3C948B;*/
+/*}*/
 
 .bar:hover {
     fill: #8E7060;
@@ -510,13 +510,14 @@ td {
 
 .axis path,
 .axis line {
-    fill: none;
-    stroke: #000;
+
+    stroke: white;
+    stroke-width: 1px;
     shape-rendering: crispEdges;
 }
 
 .x-axis path {
-    display: none;
+
 }
 
 .axis-title {

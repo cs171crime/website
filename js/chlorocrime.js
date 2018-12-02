@@ -33,7 +33,9 @@ var legendOptions = {
 // set up d3 tooltip
 var tip = d3.tip()
     .attr('class', 'd3-tip');
-svg.call(tip); //maybe this should be SVG/g???
+g.call(tip);
+
+
 
 var colorlist = {};
 
@@ -42,7 +44,6 @@ var country_data, ID_data = {};
 var rawcountry_data, ID_data = {};
 
 
-// Use the Queue.js library to read two files
 queue()
     .defer(d3.json, "data/boston.geojson")
     .defer(d3.csv, "data/hoods.csv")
@@ -76,8 +77,6 @@ queue()
 
         updateChoropleth();
 
-
-
     });
 function updateChoropleth() {
 
@@ -104,15 +103,13 @@ function updateChoropleth() {
         .attr("fill", function(d) {
 
             return calculateFill(d, data_); })
-        .on("mouseover", function(d){
-            d3.select("h4").text(d.properties.name).style("stroke", "white");
-
+        .on('mouseover', function(d) {
+            var countryData = getit(d);
+            if (countryData) {
+                tip.show(d);
+            }
         })
-        .on("mouseout", function(d){
-            d3.select("h4").text("").style("stroke", "white");
-
-        });
-
+        .on('mouseout', tip.hide);
 
 
 
@@ -153,11 +150,6 @@ function updateChoropleth() {
         .style("stroke", "white")
         .style("stroke-width", 1);
 
-    legend.selectAll('rect')
-        .style("fill", function(d) {
-
-            return d;
-        });
 
     legend_.selectAll('text')
         .text(function(d, i) {
@@ -172,15 +164,17 @@ function updateChoropleth() {
 
             return total;
         });
-    console.log("LEGEND2", legend)
 
     legend.exit().remove();
 
 
-
-
+    tip.html(function(d) {
+        return d.properties.name;;
+    });
 
 }
+
+
 
 function grouptext(data_) {
     if (data_ === "Heroin" ) {
@@ -198,32 +192,21 @@ function calculateFill(d, data_) {
         var metricValue = countryData[data_];
         if (isNaN(metricValue)) {
 
-            return "grey" ;
+            return "white" ;
         } else {
 
             return colorscale(metricValue);
         }
     } else {
 
-        return "grey";
+        return "white";
     }
 }
 
-
-function retrievevalue(d, data_) {
-    console.log('retrieve');
-    var country_data2 = getit(d);
-    var data_Value = country_data2[data_];
-
-    return colorscale(data_Value);
-}
-
 function getit(d) {
-    console.log('ID_data[d.properties.name]', ID_data[d.properties.name]);
     return ID_data[d.properties.name] || 0;
 
 }
-
 
 function color_by_type(data_) {
 
