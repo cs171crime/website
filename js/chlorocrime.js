@@ -127,7 +127,7 @@ function updateChoropleth() {
         .append('rect')
         .attr("x", width - 270)
         .attr("y", function(d, i) {
-            return i * 20 +320;
+            return i * 20 +460;
         })
         .attr("width", 20)
         .attr("height", 20)
@@ -142,7 +142,7 @@ function updateChoropleth() {
         .append('text')
         .attr("x", width-245 )
         .attr("y", function(d, i) {
-            return i * 20 +335;
+            return i * 20 +475;
         })
         .style("stroke", "white")
         .style("stroke-width", 1);
