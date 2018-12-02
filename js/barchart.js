@@ -43,7 +43,7 @@ var yScaleBar = d3.scaleLinear()
 //Set SVG
 var svgBar = d3.select("#barChart")
     .append("svg")
-    .attr("width", widthBar + marginBar.left + marginBar.right)
+    .attr("width", widthBar + marginBar.left + marginBar.right )
     .attr("height", heightBar + marginBar.top + marginBar.bottom + 150)
     .append("g")
     .attr("transform", "translate(" + marginBar.left + "," + marginBar.top + ")");
