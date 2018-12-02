@@ -40,6 +40,7 @@ Our group members are:
 * `crime_calendar.csv` - Data for tree map/calendar visualization
 * `DrugsByhour.csv` - Number of incidents per hour, for clock visualization
 * `hoods.csv` - Number of incidents per neighborhood
+* `allData.csv` - Neighborhood incident data for the barchart
 * `lineChartData.csv` - Data for line chart
 * `cleaning/CrimeCleaning.ipynb` - Python script used to clean and aggregate data
 * `cleaning/CrimeCleaning_additional_data.ipynb` - Python script used to clean and aggregate data
