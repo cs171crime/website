@@ -135,8 +135,7 @@ function updateVisualization() {
         if (grouping == "Marijuana") {
             return d.Marijuana;
         } else {
-            console.log("fucl");
-            console.log(d);
+            //console.log(d);
             return d.Heroin;
         }
     });
@@ -151,8 +150,8 @@ function updateVisualization() {
         .attr("class", "bar")
         .merge(bars)
         .attr("fill", function(d) {
-            console.log(colorBars(grouping));
-            console.log("yeet");
+            //console.log(colorBars(grouping));
+            //console.log("testing");
             return colorBars(grouping);
         })
         .attr("x", function(d,i) {
