@@ -36,7 +36,6 @@ var tip = d3.tip()
 g.call(tip);
 
 
-
 var colorlist = {};
 
 var country_data, ID_data = {};
