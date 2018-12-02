@@ -16,7 +16,6 @@ Our group members are:
 ## Code
 
 ### Javascript
-
 *Libraries*
 * `D3` - For visualizations
 * `d3-tip` - For tooltips
@@ -31,27 +30,27 @@ Our group members are:
 *Our code*
 * `main.js` - Loads navbar and scrolling; instantiates visualization objects for line chart, tree map, and clock chart
 * `chlorocrime.js` - Creates choropleth map
-* `barchart.js` - ?
+* `barchart.js` - Creates bar chart
 * `line-chart.js` - Creates line chart object
 * `treemap.js` - Creates tree map object for calendar visualization
 * `clock.js` - Creates pie chart object for clock visualization
 
 ### Data
-
 * `boston.geojson` - Spatial reference data for the City of Boston
 * `crime_calendar.csv` - Data for tree map/calendar visualization
 * `DrugsByhour.csv` - Number of incidents per hour, for clock visualization
 * `hoods.csv` - Number of incidents per neighborhood
 * `lineChartData.csv` - Data for line chart
-* `CrimeCleaning.ipynb` - Python script used to clean and aggregate data
-* `CrimeCleaning_additional_data.ipynb` - Python script used to clean and aggregate data
-### Img
+* `cleaning/CrimeCleaning.ipynb` - Python script used to clean and aggregate data
+* `cleaning/CrimeCleaning_additional_data.ipynb` - Python script used to clean and aggregate data
 
+### Img
 * `header-bg.jpg` - Background image for website
-* `purple.jpg` - Background image for website
+* `purple.jpg` - Background image for website (removed)
+* `red.jpg` - Background image for website
+
 
 ### CSS
-
 *Libraries*
 * `Animate`
 * `Bootstrap`
@@ -62,5 +61,4 @@ Our group members are:
 
 
 ### HTML
-
 * `index.html` 
