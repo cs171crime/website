@@ -7,7 +7,7 @@ var margin = {
     left: 160
 };
 var colorscale = d3.scale.quantize();
-var width = 700;
+var width = 650;
 var height = 580;
 var inputValue = null;
 var total = {};
