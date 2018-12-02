@@ -2,9 +2,9 @@
 var margin = {
 
     top: 40,
-    right: 40,
+    right: 160,
     bottom: 40,
-    left: 60
+    left: 160
 };
 var colorscale = d3.scale.quantize();
 var width = 700;
@@ -26,9 +26,7 @@ var albersProjection = d3.geoAlbers()
 
 var geoPath = d3.geoPath()
     .projection( albersProjection );
-var legendOptions = {
-    leftOffset: 120
-};
+
 
 // set up d3 tooltip
 var tip = d3.tip()
@@ -153,12 +151,11 @@ function updateChoropleth() {
     legend_.selectAll('text')
         .text(function(d, i) {
             var extent = colorscale.invertExtent(d);
-            format = d3.format(",.2r");
+            format = d3.format(".2s");
 
             boundary = format(+extent[0]);
             boundary2 = format(+extent[1]);
-            console.log("BOUNDARY", boundary)
-            var total = boundary+ " - " + boundary2 + grouptext(data_);
+            var total = boundary+ " - " + boundary2 + grouptext(data_) ;
 
 
             return total;

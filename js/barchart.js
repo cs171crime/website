@@ -53,7 +53,8 @@ var xAxisBar = d3.axisBottom(xScaleBar);
 
 
 // Create yAxis
-var yAxisBar = d3.axisLeft(yScaleBar);
+var yAxisBar = d3.axisLeft(yScaleBar)
+    .tickFormat(d3.format(".2s"));
 
 //Add xAxis to canvas - translate and fix ticks
 svgBar.append("g")
@@ -65,14 +66,14 @@ svgBar.append("g")
     .attr("dx", "-.8em")
     .attr("dy",".25em")
     .style("text-anchor", "end")
-    .style("font-size", "8px")
+    .style("font-size", "14px")
     .style("fill", "white");
 
 // Add yAxis to canvas
 svgBar.append("g")
     .attr("class", "y-axis axis")
     .call(yAxisBar)
-    .style("font-size", "8px")
+    .style("font-size", "14px")
     .style("stroke", "white");
 
 
