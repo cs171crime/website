@@ -110,7 +110,7 @@ Linechart.prototype.wrangleData = function() {
 		d3.max(vis.data, function(d) { return d.date; })
 	]);
     vis.y.domain([
-        d3.min(vis.data, function(d) { return d[vis.measure]; }),
+        0,
         d3.max(vis.data, function(d) { return d[vis.measure]; })
     ]);
 
