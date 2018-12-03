@@ -47,7 +47,6 @@ Our group members are:
 
 ### Img
 * `header-bg.jpg` - Background image for website
-* `purple.jpg` - Background image for website (removed)
 * `red.jpg` - Background image for website
 
 
