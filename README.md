@@ -10,8 +10,8 @@ Our group members are:
 
 ## Project Deliverables
 
-* [Website]()
-* [Project screencast]()
+* [Website](https://cs171crime.github.io/website/)
+* [Project screencast](https://youtu.be/Og_c4Xxd0lk)
 
 ## Code
 
