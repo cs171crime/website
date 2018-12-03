@@ -71,11 +71,11 @@ Treemap.prototype.updateVis = function(){
         .attr("fill", function(d) {
             if (d.data.id === "weed") {
                 vis.weed = parseInt(d.data.data["size"])
-                return "green"
+                return "rgb(0, 69, 41)"
             }
             else if (d.data.id === "heroin") {
                 vis.heroin = parseInt(d.data.data["size"])
-                return "red"
+                return "rgb(103, 0, 13)"
             }
             else if (d.data.id === "needle") {
                 vis.needle = parseInt(d.data.data["size"])
