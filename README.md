@@ -49,7 +49,6 @@ Our group members are:
 * `header-bg.jpg` - Background image for website
 * `red.jpg` - Background image for website
 
-
 ### CSS
 *Libraries*
 * `Animate`
@@ -57,8 +56,7 @@ Our group members are:
 * `Font Awesome`
 
 *Our code*
-* `style.css`
-
+* `main.css`
 
 ### HTML
 * `index.html` 
